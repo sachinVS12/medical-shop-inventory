@@ -4,6 +4,7 @@ const errorMiddleware = require("./middleware/errorMiddleware");
 
 // Import routes
 const authRoutes = require("./routes/authRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 const app = express();
 
