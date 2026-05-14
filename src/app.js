@@ -6,6 +6,7 @@ const errorMiddleware = require("./middleware/errorMiddleware");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
+const stockRoutes = require("./routes/stockRoutes");
 
 const app = express();
 
