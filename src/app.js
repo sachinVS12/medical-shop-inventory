@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
+app.use("/api/stocks", stockRoutes);
 
 // Dashboard route
 app.get("/api/dashboard", (req, res) => {
