@@ -9,6 +9,7 @@ const categoryRoutes = require("./routes/categoryRoutes");
 const stockRoutes = require("./routes/stockRoutes");
 const saleRoutes = require("./routes/saleRoutes");
 const managerDashboardRoutes = require("./routes/managerDashboardRoutes");
+const userDashboardRoutes = require("./routes/userDashboardRoutes");
 
 const app = express();
 
