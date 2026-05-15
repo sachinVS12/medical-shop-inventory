@@ -21,6 +21,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/stocks", stockRoutes);
+app.use("/api/sales", saleRoutes);
 
 // Dashboard route
 app.get("/api/dashboard", (req, res) => {
