@@ -27,6 +27,7 @@ app.use("/api/sales", saleRoutes);
 
 // Separate dashboard routes for different roles
 app.use("/api/dashboard/manager", managerDashboardRoutes);
+app.use("/api/dashboard/user", userDashboardRoutes);
 
 // Dashboard route
 app.get("/api/dashboard", (req, res) => {
