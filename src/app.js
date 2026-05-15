@@ -24,6 +24,9 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/stocks", stockRoutes);
 app.use("/api/sales", saleRoutes);
 
+// Separate dashboard routes for different roles
+app.use("/api/dashboard/manager", managerDashboardRoutes);
+
 // Dashboard route
 app.get("/api/dashboard", (req, res) => {
   res.json({ message: "Welcome to Medical Shop Inventory System" });
