@@ -25,6 +25,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/stocks", stockRoutes);
 app.use("/api/sales", saleRoutes);
+app.use("/api/orders", orderRoutes);
 
 // Separate dashboard routes for different roles
 app.use("/api/dashboard/manager", managerDashboardRoutes);
