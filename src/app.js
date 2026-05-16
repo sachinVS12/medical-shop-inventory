@@ -10,6 +10,7 @@ const stockRoutes = require("./routes/stockRoutes");
 const saleRoutes = require("./routes/saleRoutes");
 const managerDashboardRoutes = require("./routes/managerDashboardRoutes");
 const userDashboardRoutes = require("./routes/userDashboardRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 
 const app = express();
 
