@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const errorMiddleware = require("./middleware/errorMiddleware");
 
-// Import routes
+// Import Routes
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
