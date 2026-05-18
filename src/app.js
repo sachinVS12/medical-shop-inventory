@@ -27,20 +27,37 @@ app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/stocks", stockRoutes);
 app.use("/api/sales", saleRoutes);
+app.use("/api/dashboard/manager", managerDashboardRoutes);
+app.use("/api/dashboard/user", userDashboardRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/delivery", deliveryRoutes);
 
-// Separate dashboard routes for different roles
-app.use("/api/dashboard/manager", managerDashboardRoutes);
-app.use("/api/dashboard/user", userDashboardRoutes);
-
-// Dashboard route
-app.get("/api/dashboard", (req, res) => {
-  res.json({ message: "Welcome to Medical Shop Inventory System" });
+// Health check route
+app.get("/api/health", (req, res) => {
+  res.json({ status: "OK", message: "Server is running" });
 });
 
-// Error handling middleware
+// Root route
+app.get("/", (req, res) => {
+  res.json({
+    message: "Medical Shop Inventory Management System API",
+    version: "1.0.0",
+    endpoints: {
+      auth: "/api/auth",
+      products: "/api/products",
+      categories: "/api/categories",
+      stocks: "/api/stocks",
+      sales: "/api/sales",
+      dashboard: "/api/dashboard",
+      orders: "/api/orders",
+      payments: "/api/payments",
+      delivery: "/api/delivery",
+    },
+  });
+});
+
+// Error handling middleware (should be last)
 app.use(errorMiddleware);
 
 module.exports = app;
