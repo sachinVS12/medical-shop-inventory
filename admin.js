@@ -13,7 +13,7 @@ const createAdminUser = async () => {
     const userCount = await User.countDocuments();
 
     if (userCount === 0) {
-      // Create admin user
+      // Create admin user                  // node admin.js
       const admin = await User.create({
         name: "Admin User",
         email: "admin@medicalshop.com",
