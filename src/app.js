@@ -12,6 +12,7 @@ const managerDashboardRoutes = require("./routes/managerDashboardRoutes");
 const userDashboardRoutes = require("./routes/userDashboardRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
+const deliveryRoutes = require("./routes/deliveryRoutes");
 
 const app = express();
 
