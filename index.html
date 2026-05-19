@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Attractive Payment Form</title>
+    <title>Modern Payment Form</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -23,96 +23,23 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        overflow: hidden;
-        background: #0f172a;
+        background: linear-gradient(135deg, #5b21b6, #7c3aed, #ec4899);
       }
 
-      /* Animated Gradient Background */
-      .bg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, #4f46e5, #9333ea, #ec4899, #06b6d4);
-        background-size: 400% 400%;
-        animation: gradientMove 15s ease infinite;
-        filter: blur(80px);
-        opacity: 0.8;
-      }
-
-      @keyframes gradientMove {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      /* Floating Glow Balls */
-      .ball {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        animation: float 8s infinite ease-in-out;
-      }
-
-      .ball1 {
-        width: 180px;
-        height: 180px;
-        top: 5%;
-        left: 8%;
-      }
-
-      .ball2 {
-        width: 250px;
-        height: 250px;
-        bottom: 0;
-        right: 10%;
-        animation-duration: 10s;
-      }
-
-      .ball3 {
-        width: 100px;
-        height: 100px;
-        top: 70%;
-        left: 20%;
-        animation-duration: 6s;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-30px);
-        }
-      }
-
-      /* MAIN CONTAINER */
+      /* MAIN BOX */
       .container {
-        position: relative;
-        z-index: 2;
-        width: 430px;
+        width: 420px;
+        background: white;
+        border-radius: 30px;
         padding: 35px;
-        border-radius: 35px;
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow:
-          0 10px 40px rgba(0, 0, 0, 0.4),
-          inset 0 0 20px rgba(255, 255, 255, 0.05);
-        animation: fadeIn 1s ease;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        animation: show 1s ease;
       }
 
-      @keyframes fadeIn {
+      @keyframes show {
         from {
           opacity: 0;
-          transform: translateY(40px);
+          transform: translateY(30px);
         }
         to {
           opacity: 1;
@@ -126,96 +53,47 @@
       }
 
       .title h1 {
-        color: white;
+        color: #5b21b6;
         font-size: 34px;
-        font-weight: 700;
-        letter-spacing: 1px;
       }
 
       .title p {
-        color: #ddd;
-        margin-top: 8px;
-        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
       }
 
-      /* CARD */
-      .card {
-        height: 230px;
-        border-radius: 25px;
-        padding: 25px;
-        margin-bottom: 28px;
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.15),
-          rgba(255, 255, 255, 0.05)
-        );
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        transition: 0.5s;
-      }
-
-      .card:hover {
-        transform: rotateY(10deg) rotateX(5deg) scale(1.02);
-      }
-
-      .card::before {
-        content: "";
-        position: absolute;
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        top: -100px;
-        right: -70px;
-      }
-
-      .card::after {
-        content: "";
-        position: absolute;
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.05);
-        bottom: -90px;
-        left: -70px;
-      }
-
-      .logo {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-        color: white;
-        font-size: 28px;
-        font-weight: 700;
-      }
-
-      .chip {
-        width: 65px;
-        height: 50px;
-        border-radius: 12px;
-        background: linear-gradient(to bottom right, #ffd700, #f59e0b);
-        margin-bottom: 35px;
-      }
-
-      .card-number {
-        color: white;
-        font-size: 24px;
-        letter-spacing: 4px;
-        margin-bottom: 28px;
-        font-weight: 500;
-      }
-
-      .card-bottom {
+      /* PAYMENT BUTTONS */
+      .payment-methods {
         display: flex;
-        justify-content: space-between;
-        color: white;
+        gap: 12px;
+        margin-bottom: 25px;
       }
 
-      .card-bottom small {
-        color: #ddd;
-        font-size: 11px;
+      .method {
+        flex: 1;
+        padding: 14px;
+        border-radius: 16px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        color: white;
+        transition: 0.3s;
+      }
+
+      .card-btn {
+        background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      }
+
+      .upi-btn {
+        background: linear-gradient(135deg, #ec4899, #f43f5e);
+      }
+
+      .wallet-btn {
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      }
+
+      .method:hover {
+        transform: translateY(-4px);
       }
 
       /* INPUTS */
@@ -224,36 +102,28 @@
       }
 
       .input-box label {
-        color: white;
         display: block;
         margin-bottom: 8px;
-        font-size: 14px;
+        color: #444;
+        font-weight: 500;
       }
 
       .input-box input {
         width: 100%;
         padding: 15px;
-        border: none;
+        border-radius: 15px;
+        border: 2px solid #eee;
         outline: none;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.12);
-        color: white;
         font-size: 15px;
         transition: 0.3s;
-        border: 1px solid transparent;
-      }
-
-      .input-box input::placeholder {
-        color: #ddd;
       }
 
       .input-box input:focus {
         border-color: #8b5cf6;
-        background: rgba(255, 255, 255, 0.18);
-        transform: scale(1.02);
-        box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
       }
 
+      /* ROW */
       .row {
         display: flex;
         gap: 15px;
@@ -263,8 +133,8 @@
         flex: 1;
       }
 
-      /* BUTTON */
-      .btn {
+      /* PAY BUTTON */
+      .pay-btn {
         width: 100%;
         padding: 17px;
         border: none;
@@ -274,45 +144,69 @@
         font-size: 18px;
         font-weight: 600;
         cursor: pointer;
-        position: relative;
-        overflow: hidden;
         transition: 0.4s;
         margin-top: 10px;
       }
 
-      .btn::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        top: 0;
-        left: -100%;
-        transition: 0.5s;
+      .pay-btn:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
       }
 
-      .btn:hover::before {
-        left: 100%;
+      /* CARD DESIGN */
+      .card-preview {
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        border-radius: 25px;
+        padding: 25px;
+        color: white;
+        margin-bottom: 25px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
       }
 
-      .btn:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 25px rgba(236, 72, 153, 0.4);
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+      }
+
+      .chip {
+        width: 60px;
+        height: 45px;
+        background: gold;
+        border-radius: 10px;
+      }
+
+      .visa {
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      .card-number {
+        font-size: 22px;
+        letter-spacing: 3px;
+        margin-bottom: 25px;
+      }
+
+      .card-bottom {
+        display: flex;
+        justify-content: space-between;
       }
 
       /* SUCCESS */
       .success {
         margin-top: 20px;
+        background: #dcfce7;
+        color: #166534;
+        padding: 14px;
+        border-radius: 14px;
         text-align: center;
-        color: #86efac;
-        font-weight: 600;
         display: none;
         animation: pop 0.5s ease;
       }
 
       @keyframes pop {
         from {
-          transform: scale(0.6);
+          transform: scale(0.7);
           opacity: 0;
         }
         to {
@@ -320,41 +214,24 @@
           opacity: 1;
         }
       }
-
-      /* RESPONSIVE */
-      @media (max-width: 500px) {
-        .container {
-          width: 92%;
-          padding: 25px;
-        }
-
-        .card-number {
-          font-size: 18px;
-        }
-      }
     </style>
   </head>
 
   <body>
-    <div class="bg"></div>
-
-    <div class="ball ball1"></div>
-    <div class="ball ball2"></div>
-    <div class="ball ball3"></div>
-
     <div class="container">
       <div class="title">
         <h1>💳 Payment</h1>
-        <p>Secure Modern Payment Gateway</p>
+        <p>Fast & Secure Payment Form</p>
       </div>
 
       <!-- CARD -->
-      <div class="card">
-        <div class="logo">VISA</div>
+      <div class="card-preview">
+        <div class="card-top">
+          <div class="chip"></div>
+          <div class="visa">VISA</div>
+        </div>
 
-        <div class="chip"></div>
-
-        <div class="card-number" id="cardPreview">#### #### #### ####</div>
+        <div class="card-number" id="cardPreview">1234 5678 9012 3456</div>
 
         <div class="card-bottom">
           <div>
@@ -367,6 +244,15 @@
             <h3 id="expiryPreview">MM/YY</h3>
           </div>
         </div>
+      </div>
+
+      <!-- PAYMENT OPTIONS -->
+      <div class="payment-methods">
+        <button class="method card-btn">💳 Card</button>
+
+        <button class="method upi-btn">📱 UPI</button>
+
+        <button class="method wallet-btn">👛 Wallet</button>
       </div>
 
       <!-- FORM -->
@@ -415,24 +301,24 @@
           <input type="number" placeholder="₹1000" required />
         </div>
 
-        <button type="submit" class="btn">Pay Now</button>
+        <button class="pay-btn">Pay Now 🚀</button>
 
         <div class="success" id="success">✅ Payment Successful</div>
       </form>
     </div>
 
     <script>
-      // Inputs
+      // INPUTS
       const cardInput = document.getElementById("cardNumber");
       const nameInput = document.getElementById("name");
       const expiryInput = document.getElementById("expiry");
 
-      // Preview
+      // PREVIEW
       const cardPreview = document.getElementById("cardPreview");
       const namePreview = document.getElementById("namePreview");
       const expiryPreview = document.getElementById("expiryPreview");
 
-      // Success
+      // SUCCESS
       const success = document.getElementById("success");
 
       // CARD FORMAT
@@ -443,15 +329,15 @@
 
         this.value = value;
 
-        cardPreview.innerText = value || "#### #### #### ####";
+        cardPreview.innerText = value || "1234 5678 9012 3456";
       });
 
-      // NAME PREVIEW
+      // NAME
       nameInput.addEventListener("input", function () {
         namePreview.innerText = this.value.toUpperCase() || "YOUR NAME";
       });
 
-      // EXPIRY FORMAT
+      // EXPIRY
       expiryInput.addEventListener("input", function () {
         let value = this.value.replace(/\D/g, "");
 
