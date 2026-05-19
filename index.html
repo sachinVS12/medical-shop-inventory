@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modern Payment Form</title>
+    <title>Premium Payment Form</title>
 
-    <!-- Google Font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -24,51 +23,85 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(135deg, #4f46e5, #9333ea, #ec4899);
         overflow: hidden;
+        background: linear-gradient(-45deg, #4f46e5, #7c3aed, #ec4899, #06b6d4);
+        background-size: 400% 400%;
+        animation: bgAnimation 12s ease infinite;
       }
 
-      /* Background Glow */
-      body::before,
-      body::after {
-        content: "";
+      /* Animated Background */
+      @keyframes bgAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Floating circles */
+      .circle {
         position: absolute;
-        width: 300px;
-        height: 300px;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.1);
-        filter: blur(30px);
-        z-index: 0;
+        animation: float 10s infinite linear;
       }
 
-      body::before {
-        top: -100px;
-        left: -100px;
+      .circle:nth-child(1) {
+        width: 120px;
+        height: 120px;
+        top: 10%;
+        left: 10%;
       }
 
-      body::after {
-        bottom: -100px;
-        right: -100px;
+      .circle:nth-child(2) {
+        width: 180px;
+        height: 180px;
+        bottom: 5%;
+        right: 10%;
+        animation-duration: 14s;
+      }
+
+      .circle:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        top: 70%;
+        left: 20%;
+        animation-duration: 8s;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-30px) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(360deg);
+        }
       }
 
       .container {
-        position: relative;
-        z-index: 1;
-        width: 400px;
+        width: 430px;
         padding: 30px;
-        border-radius: 25px;
+        border-radius: 30px;
         background: rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(18px);
         border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-        color: #fff;
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+        position: relative;
+        z-index: 2;
         animation: fadeIn 1s ease;
       }
 
       @keyframes fadeIn {
         from {
           opacity: 0;
-          transform: translateY(20px);
+          transform: translateY(30px);
         }
         to {
           opacity: 1;
@@ -76,54 +109,90 @@
         }
       }
 
-      .container h2 {
+      .title {
         text-align: center;
+        color: white;
         margin-bottom: 25px;
-        font-size: 28px;
-        font-weight: 600;
-        letter-spacing: 1px;
       }
 
-      .card-preview {
-        background: linear-gradient(135deg, #1e293b, #334155);
-        border-radius: 18px;
-        padding: 20px;
-        margin-bottom: 25px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      .title h2 {
+        font-size: 32px;
+        font-weight: 700;
+      }
+
+      .title p {
+        font-size: 14px;
+        opacity: 0.8;
+      }
+
+      /* CARD */
+      .card {
+        height: 220px;
+        border-radius: 24px;
+        padding: 25px;
         position: relative;
         overflow: hidden;
+        background: linear-gradient(135deg, #111827, #374151);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        margin-bottom: 25px;
+        transition: 0.5s;
       }
 
-      .card-preview::before {
+      .card:hover {
+        transform: rotateY(8deg) rotateX(5deg);
+      }
+
+      .card::before {
         content: "";
         position: absolute;
-        width: 150px;
-        height: 150px;
+        width: 250px;
+        height: 250px;
         background: rgba(255, 255, 255, 0.08);
         border-radius: 50%;
-        top: -60px;
-        right: -50px;
+        top: -100px;
+        right: -80px;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        bottom: -80px;
+        left: -60px;
       }
 
       .chip {
-        width: 55px;
-        height: 40px;
-        background: gold;
-        border-radius: 8px;
-        margin-bottom: 20px;
+        width: 60px;
+        height: 45px;
+        background: linear-gradient(to bottom right, gold, #facc15);
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+
+      .bank {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        color: white;
+        font-size: 22px;
+        font-weight: 600;
       }
 
       .card-number {
-        font-size: 22px;
-        letter-spacing: 3px;
-        margin-bottom: 20px;
+        color: white;
+        font-size: 24px;
+        letter-spacing: 4px;
+        margin-bottom: 25px;
       }
 
-      .card-info {
+      .card-details {
         display: flex;
         justify-content: space-between;
+        color: white;
         font-size: 14px;
-        text-transform: uppercase;
       }
 
       .input-box {
@@ -131,21 +200,22 @@
       }
 
       .input-box label {
+        color: white;
         display: block;
         margin-bottom: 8px;
         font-size: 14px;
-        color: #f1f1f1;
       }
 
-      .input-box input {
+      .input-box input,
+      .input-box select {
         width: 100%;
         padding: 14px;
         border: none;
-        outline: none;
-        border-radius: 12px;
+        border-radius: 14px;
         background: rgba(255, 255, 255, 0.15);
-        color: #fff;
+        color: white;
         font-size: 15px;
+        outline: none;
         transition: 0.3s;
       }
 
@@ -153,9 +223,11 @@
         color: #ddd;
       }
 
-      .input-box input:focus {
+      .input-box input:focus,
+      .input-box select:focus {
         background: rgba(255, 255, 255, 0.25);
         transform: scale(1.02);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
       }
 
       .row {
@@ -167,49 +239,81 @@
         flex: 1;
       }
 
-      .btn {
+      .pay-btn {
         width: 100%;
-        padding: 15px;
+        padding: 16px;
         border: none;
-        border-radius: 14px;
+        border-radius: 16px;
         background: linear-gradient(135deg, #06b6d4, #3b82f6);
-        color: #fff;
-        font-size: 17px;
+        color: white;
+        font-size: 18px;
         font-weight: 600;
         cursor: pointer;
-        transition: 0.3s;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: 0.4s;
+        overflow: hidden;
+        position: relative;
       }
 
-      .btn:hover {
+      .pay-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.25);
+        transition: 0.5s;
+      }
+
+      .pay-btn:hover::before {
+        left: 100%;
+      }
+
+      .pay-btn:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       }
 
       .success {
         text-align: center;
-        margin-top: 18px;
+        margin-top: 20px;
         color: #90ffb5;
         display: none;
         font-weight: 600;
-        animation: pop 0.5s ease;
+        animation: pop 0.6s ease;
       }
 
       @keyframes pop {
         from {
-          transform: scale(0.8);
           opacity: 0;
+          transform: scale(0.5);
         }
         to {
-          transform: scale(1);
           opacity: 1;
+          transform: scale(1);
         }
       }
 
-      @media (max-width: 450px) {
+      .payment-icons {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .payment-icons img {
+        width: 55px;
+        transition: 0.3s;
+      }
+
+      .payment-icons img:hover {
+        transform: scale(1.15);
+      }
+
+      @media (max-width: 500px) {
         .container {
-          width: 90%;
-          padding: 25px;
+          width: 92%;
+          padding: 20px;
         }
 
         .card-number {
@@ -220,22 +324,38 @@
   </head>
 
   <body>
-    <div class="container">
-      <h2>💳 Secure Payment</h2>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
 
-      <!-- Card Preview -->
-      <div class="card-preview">
+    <div class="container">
+      <div class="title">
+        <h2>💳 Secure Payment</h2>
+        <p>Fast • Safe • Encrypted</p>
+      </div>
+
+      <!-- CARD PREVIEW -->
+      <div class="card">
+        <div class="bank">VISA</div>
+
         <div class="chip"></div>
 
-        <div class="card-number" id="previewNumber">#### #### #### ####</div>
+        <div class="card-number" id="cardPreview">#### #### #### ####</div>
 
-        <div class="card-info">
-          <span id="previewName">YOUR NAME</span>
-          <span id="previewExpiry">MM/YY</span>
+        <div class="card-details">
+          <div>
+            <small>Card Holder</small>
+            <div id="namePreview">YOUR NAME</div>
+          </div>
+
+          <div>
+            <small>Expires</small>
+            <div id="expiryPreview">MM/YY</div>
+          </div>
         </div>
       </div>
 
-      <!-- Form -->
+      <!-- FORM -->
       <form id="paymentForm">
         <div class="input-box">
           <label>Card Holder Name</label>
@@ -278,14 +398,33 @@
         </div>
 
         <div class="input-box">
-          <label>Amount</label>
-          <input type="number" placeholder="$100" required />
+          <label>Payment Method</label>
+
+          <select required>
+            <option value="">Select Method</option>
+            <option>Credit Card</option>
+            <option>Debit Card</option>
+            <option>UPI</option>
+            <option>Net Banking</option>
+          </select>
         </div>
 
-        <button type="submit" class="btn">Pay Now</button>
+        <div class="input-box">
+          <label>Amount</label>
+          <input type="number" placeholder="₹1000" required />
+        </div>
 
-        <div class="success" id="successMsg">✅ Payment Successful!</div>
+        <button type="submit" class="pay-btn">Pay Securely</button>
+
+        <div class="success" id="success">✅ Payment Successful!</div>
       </form>
+
+      <!-- PAYMENT ICONS -->
+      <div class="payment-icons">
+        <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" />
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png" />
+        <img src="https://cdn-icons-png.flaticon.com/512/825/825454.png" />
+      </div>
     </div>
 
     <script>
@@ -293,28 +432,30 @@
       const nameInput = document.getElementById("name");
       const expiryInput = document.getElementById("expiry");
 
-      const previewNumber = document.getElementById("previewNumber");
-      const previewName = document.getElementById("previewName");
-      const previewExpiry = document.getElementById("previewExpiry");
+      const cardPreview = document.getElementById("cardPreview");
+      const namePreview = document.getElementById("namePreview");
+      const expiryPreview = document.getElementById("expiryPreview");
 
       const form = document.getElementById("paymentForm");
-      const successMsg = document.getElementById("successMsg");
+      const success = document.getElementById("success");
 
-      // Card Number Formatting
+      // Card Number Format
       cardInput.addEventListener("input", function () {
         let value = this.value.replace(/\D/g, "");
+
         value = value.replace(/(.{4})/g, "$1 ").trim();
+
         this.value = value;
 
-        previewNumber.innerText = value || "#### #### #### ####";
+        cardPreview.innerText = value || "#### #### #### ####";
       });
 
       // Name Preview
       nameInput.addEventListener("input", function () {
-        previewName.innerText = this.value.toUpperCase() || "YOUR NAME";
+        namePreview.innerText = this.value.toUpperCase() || "YOUR NAME";
       });
 
-      // Expiry Formatting
+      // Expiry Format
       expiryInput.addEventListener("input", function () {
         let value = this.value.replace(/\D/g, "");
 
@@ -324,24 +465,25 @@
 
         this.value = value;
 
-        previewExpiry.innerText = value || "MM/YY";
+        expiryPreview.innerText = value || "MM/YY";
       });
 
-      // Form Submit
+      // Submit Animation
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        successMsg.style.display = "block";
+        success.style.display = "block";
 
         setTimeout(() => {
-          successMsg.style.display = "none";
+          success.style.display = "none";
+
           form.reset();
 
-          previewNumber.innerText = "#### #### #### ####";
+          cardPreview.innerText = "#### #### #### ####";
 
-          previewName.innerText = "YOUR NAME";
+          namePreview.innerText = "YOUR NAME";
 
-          previewExpiry.innerText = "MM/YY";
+          expiryPreview.innerText = "MM/YY";
         }, 3000);
       });
     </script>
