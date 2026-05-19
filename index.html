@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Premium Payment Form</title>
+    <title>Attractive Payment Form</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -24,13 +24,22 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        background: linear-gradient(-45deg, #4f46e5, #7c3aed, #ec4899, #06b6d4);
-        background-size: 400% 400%;
-        animation: bgAnimation 12s ease infinite;
+        background: #0f172a;
       }
 
-      /* Animated Background */
-      @keyframes bgAnimation {
+      /* Animated Gradient Background */
+      .bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #4f46e5, #9333ea, #ec4899, #06b6d4);
+        background-size: 400% 400%;
+        animation: gradientMove 15s ease infinite;
+        filter: blur(80px);
+        opacity: 0.8;
+      }
+
+      @keyframes gradientMove {
         0% {
           background-position: 0% 50%;
         }
@@ -42,66 +51,68 @@
         }
       }
 
-      /* Floating circles */
-      .circle {
+      /* Floating Glow Balls */
+      .ball {
         position: absolute;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        animation: float 10s infinite linear;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        animation: float 8s infinite ease-in-out;
       }
 
-      .circle:nth-child(1) {
-        width: 120px;
-        height: 120px;
-        top: 10%;
-        left: 10%;
-      }
-
-      .circle:nth-child(2) {
+      .ball1 {
         width: 180px;
         height: 180px;
-        bottom: 5%;
-        right: 10%;
-        animation-duration: 14s;
+        top: 5%;
+        left: 8%;
       }
 
-      .circle:nth-child(3) {
-        width: 80px;
-        height: 80px;
+      .ball2 {
+        width: 250px;
+        height: 250px;
+        bottom: 0;
+        right: 10%;
+        animation-duration: 10s;
+      }
+
+      .ball3 {
+        width: 100px;
+        height: 100px;
         top: 70%;
         left: 20%;
-        animation-duration: 8s;
+        animation-duration: 6s;
       }
 
       @keyframes float {
-        0% {
-          transform: translateY(0px) rotate(0deg);
+        0%,
+        100% {
+          transform: translateY(0px);
         }
         50% {
-          transform: translateY(-30px) rotate(180deg);
-        }
-        100% {
-          transform: translateY(0px) rotate(360deg);
+          transform: translateY(-30px);
         }
       }
 
+      /* MAIN CONTAINER */
       .container {
-        width: 430px;
-        padding: 30px;
-        border-radius: 30px;
-        background: rgba(255, 255, 255, 0.12);
-        backdrop-filter: blur(18px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
         position: relative;
         z-index: 2;
+        width: 430px;
+        padding: 35px;
+        border-radius: 35px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow:
+          0 10px 40px rgba(0, 0, 0, 0.4),
+          inset 0 0 20px rgba(255, 255, 255, 0.05);
         animation: fadeIn 1s ease;
       }
 
       @keyframes fadeIn {
         from {
           opacity: 0;
-          transform: translateY(30px);
+          transform: translateY(40px);
         }
         to {
           opacity: 1;
@@ -111,46 +122,53 @@
 
       .title {
         text-align: center;
-        color: white;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
       }
 
-      .title h2 {
-        font-size: 32px;
+      .title h1 {
+        color: white;
+        font-size: 34px;
         font-weight: 700;
+        letter-spacing: 1px;
       }
 
       .title p {
+        color: #ddd;
+        margin-top: 8px;
         font-size: 14px;
-        opacity: 0.8;
       }
 
       /* CARD */
       .card {
-        height: 220px;
-        border-radius: 24px;
+        height: 230px;
+        border-radius: 25px;
         padding: 25px;
+        margin-bottom: 28px;
         position: relative;
         overflow: hidden;
-        background: linear-gradient(135deg, #111827, #374151);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-        margin-bottom: 25px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.15),
+          rgba(255, 255, 255, 0.05)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         transition: 0.5s;
       }
 
       .card:hover {
-        transform: rotateY(8deg) rotateX(5deg);
+        transform: rotateY(10deg) rotateX(5deg) scale(1.02);
       }
 
       .card::before {
         content: "";
         position: absolute;
-        width: 250px;
-        height: 250px;
-        background: rgba(255, 255, 255, 0.08);
+        width: 220px;
+        height: 220px;
         border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
         top: -100px;
-        right: -80px;
+        right: -70px;
       }
 
       .card::after {
@@ -158,43 +176,49 @@
         position: absolute;
         width: 180px;
         height: 180px;
-        background: rgba(255, 255, 255, 0.05);
         border-radius: 50%;
-        bottom: -80px;
-        left: -60px;
+        background: rgba(255, 255, 255, 0.05);
+        bottom: -90px;
+        left: -70px;
       }
 
-      .chip {
-        width: 60px;
-        height: 45px;
-        background: linear-gradient(to bottom right, gold, #facc15);
-        border-radius: 10px;
-        margin-bottom: 30px;
-      }
-
-      .bank {
+      .logo {
         position: absolute;
         top: 25px;
         right: 25px;
         color: white;
-        font-size: 22px;
-        font-weight: 600;
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      .chip {
+        width: 65px;
+        height: 50px;
+        border-radius: 12px;
+        background: linear-gradient(to bottom right, #ffd700, #f59e0b);
+        margin-bottom: 35px;
       }
 
       .card-number {
         color: white;
         font-size: 24px;
         letter-spacing: 4px;
-        margin-bottom: 25px;
+        margin-bottom: 28px;
+        font-weight: 500;
       }
 
-      .card-details {
+      .card-bottom {
         display: flex;
         justify-content: space-between;
         color: white;
-        font-size: 14px;
       }
 
+      .card-bottom small {
+        color: #ddd;
+        font-size: 11px;
+      }
+
+      /* INPUTS */
       .input-box {
         margin-bottom: 18px;
       }
@@ -206,28 +230,28 @@
         font-size: 14px;
       }
 
-      .input-box input,
-      .input-box select {
+      .input-box input {
         width: 100%;
-        padding: 14px;
+        padding: 15px;
         border: none;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.15);
+        outline: none;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.12);
         color: white;
         font-size: 15px;
-        outline: none;
         transition: 0.3s;
+        border: 1px solid transparent;
       }
 
       .input-box input::placeholder {
         color: #ddd;
       }
 
-      .input-box input:focus,
-      .input-box select:focus {
-        background: rgba(255, 255, 255, 0.25);
+      .input-box input:focus {
+        border-color: #8b5cf6;
+        background: rgba(255, 255, 255, 0.18);
         transform: scale(1.02);
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
       }
 
       .row {
@@ -239,81 +263,69 @@
         flex: 1;
       }
 
-      .pay-btn {
+      /* BUTTON */
+      .btn {
         width: 100%;
-        padding: 16px;
+        padding: 17px;
         border: none;
-        border-radius: 16px;
-        background: linear-gradient(135deg, #06b6d4, #3b82f6);
+        border-radius: 18px;
+        background: linear-gradient(135deg, #8b5cf6, #ec4899);
         color: white;
         font-size: 18px;
         font-weight: 600;
         cursor: pointer;
-        transition: 0.4s;
-        overflow: hidden;
         position: relative;
+        overflow: hidden;
+        transition: 0.4s;
+        margin-top: 10px;
       }
 
-      .pay-btn::before {
+      .btn::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: -100%;
         width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.2);
+        top: 0;
+        left: -100%;
         transition: 0.5s;
       }
 
-      .pay-btn:hover::before {
+      .btn:hover::before {
         left: 100%;
       }
 
-      .pay-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      .btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 25px rgba(236, 72, 153, 0.4);
       }
 
+      /* SUCCESS */
       .success {
-        text-align: center;
         margin-top: 20px;
-        color: #90ffb5;
-        display: none;
+        text-align: center;
+        color: #86efac;
         font-weight: 600;
-        animation: pop 0.6s ease;
+        display: none;
+        animation: pop 0.5s ease;
       }
 
       @keyframes pop {
         from {
+          transform: scale(0.6);
           opacity: 0;
-          transform: scale(0.5);
         }
         to {
-          opacity: 1;
           transform: scale(1);
+          opacity: 1;
         }
       }
 
-      .payment-icons {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        margin-top: 20px;
-      }
-
-      .payment-icons img {
-        width: 55px;
-        transition: 0.3s;
-      }
-
-      .payment-icons img:hover {
-        transform: scale(1.15);
-      }
-
+      /* RESPONSIVE */
       @media (max-width: 500px) {
         .container {
           width: 92%;
-          padding: 20px;
+          padding: 25px;
         }
 
         .card-number {
@@ -324,33 +336,35 @@
   </head>
 
   <body>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
+    <div class="bg"></div>
+
+    <div class="ball ball1"></div>
+    <div class="ball ball2"></div>
+    <div class="ball ball3"></div>
 
     <div class="container">
       <div class="title">
-        <h2>💳 Secure Payment</h2>
-        <p>Fast • Safe • Encrypted</p>
+        <h1>💳 Payment</h1>
+        <p>Secure Modern Payment Gateway</p>
       </div>
 
-      <!-- CARD PREVIEW -->
+      <!-- CARD -->
       <div class="card">
-        <div class="bank">VISA</div>
+        <div class="logo">VISA</div>
 
         <div class="chip"></div>
 
         <div class="card-number" id="cardPreview">#### #### #### ####</div>
 
-        <div class="card-details">
+        <div class="card-bottom">
           <div>
             <small>Card Holder</small>
-            <div id="namePreview">YOUR NAME</div>
+            <h3 id="namePreview">YOUR NAME</h3>
           </div>
 
           <div>
             <small>Expires</small>
-            <div id="expiryPreview">MM/YY</div>
+            <h3 id="expiryPreview">MM/YY</h3>
           </div>
         </div>
       </div>
@@ -359,11 +373,13 @@
       <form id="paymentForm">
         <div class="input-box">
           <label>Card Holder Name</label>
+
           <input type="text" id="name" placeholder="John Doe" required />
         </div>
 
         <div class="input-box">
           <label>Card Number</label>
+
           <input
             type="text"
             id="cardNumber"
@@ -376,6 +392,7 @@
         <div class="row">
           <div class="input-box">
             <label>Expiry Date</label>
+
             <input
               type="text"
               id="expiry"
@@ -387,59 +404,38 @@
 
           <div class="input-box">
             <label>CVV</label>
-            <input
-              type="password"
-              id="cvv"
-              placeholder="123"
-              maxlength="3"
-              required
-            />
+
+            <input type="password" placeholder="123" maxlength="3" required />
           </div>
         </div>
 
         <div class="input-box">
-          <label>Payment Method</label>
-
-          <select required>
-            <option value="">Select Method</option>
-            <option>Credit Card</option>
-            <option>Debit Card</option>
-            <option>UPI</option>
-            <option>Net Banking</option>
-          </select>
-        </div>
-
-        <div class="input-box">
           <label>Amount</label>
+
           <input type="number" placeholder="₹1000" required />
         </div>
 
-        <button type="submit" class="pay-btn">Pay Securely</button>
+        <button type="submit" class="btn">Pay Now</button>
 
-        <div class="success" id="success">✅ Payment Successful!</div>
+        <div class="success" id="success">✅ Payment Successful</div>
       </form>
-
-      <!-- PAYMENT ICONS -->
-      <div class="payment-icons">
-        <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" />
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png" />
-        <img src="https://cdn-icons-png.flaticon.com/512/825/825454.png" />
-      </div>
     </div>
 
     <script>
+      // Inputs
       const cardInput = document.getElementById("cardNumber");
       const nameInput = document.getElementById("name");
       const expiryInput = document.getElementById("expiry");
 
+      // Preview
       const cardPreview = document.getElementById("cardPreview");
       const namePreview = document.getElementById("namePreview");
       const expiryPreview = document.getElementById("expiryPreview");
 
-      const form = document.getElementById("paymentForm");
+      // Success
       const success = document.getElementById("success");
 
-      // Card Number Format
+      // CARD FORMAT
       cardInput.addEventListener("input", function () {
         let value = this.value.replace(/\D/g, "");
 
@@ -450,12 +446,12 @@
         cardPreview.innerText = value || "#### #### #### ####";
       });
 
-      // Name Preview
+      // NAME PREVIEW
       nameInput.addEventListener("input", function () {
         namePreview.innerText = this.value.toUpperCase() || "YOUR NAME";
       });
 
-      // Expiry Format
+      // EXPIRY FORMAT
       expiryInput.addEventListener("input", function () {
         let value = this.value.replace(/\D/g, "");
 
@@ -468,24 +464,18 @@
         expiryPreview.innerText = value || "MM/YY";
       });
 
-      // Submit Animation
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+      // SUBMIT
+      document
+        .getElementById("paymentForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-        success.style.display = "block";
+          success.style.display = "block";
 
-        setTimeout(() => {
-          success.style.display = "none";
-
-          form.reset();
-
-          cardPreview.innerText = "#### #### #### ####";
-
-          namePreview.innerText = "YOUR NAME";
-
-          expiryPreview.innerText = "MM/YY";
-        }, 3000);
-      });
+          setTimeout(() => {
+            success.style.display = "none";
+          }, 3000);
+        });
     </script>
   </body>
 </html>
